@@ -42,6 +42,8 @@ juce_add_plugin(LDatLpMode
     BLUETOOTH_PERMISSION_TEXT "L-DAT LP Mode does not use MIDI. Bluetooth is only touched by the JUCE audio settings dialog."
     # ad-hoc or self-signed, no Developer ID and no notarisation. xcode generator only, XCODE_ATTRIBUTE_* means nothing to ninja
     HARDENED_RUNTIME_ENABLED TRUE
+    # hardened runtime denies mic access silently without this, the standalone never even shows up in the privacy list. AU/VST3 run under the host's entitlements
+    HARDENED_RUNTIME_OPTIONS com.apple.security.device.audio-input
     # off everywhere. the mac pkg installs into /Library, a copy into ~/Library
     # on top of that shows up twice in the DAW. windows default dir is not writable
     COPY_PLUGIN_AFTER_BUILD FALSE
