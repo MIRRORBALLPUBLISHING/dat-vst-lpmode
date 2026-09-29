@@ -47,7 +47,25 @@ juce_add_plugin(LDatLpMode
     # off everywhere. the mac pkg installs into /Library, a copy into ~/Library
     # on top of that shows up twice in the DAW. windows default dir is not writable
     COPY_PLUGIN_AFTER_BUILD FALSE
+    # made by resources/icon/make_icons.sh. these two only switch on JUCE's icon wiring, the real icon is swapped in below
+    ICON_BIG resources/icon/ldat_icon_1024.png
+    ICON_SMALL resources/icon/ldat_icon_small_32.png
 )
+
+# juceaide packs just the 2 images above into its icns/ico, no @2x and no mid sizes. it runs at configure time
+# inside juce_add_plugin, so overwriting its output here lands before plist, rc, bundle Resources and the
+# windows VST3 desktop.ini pick it up. relies on JUCE internal property JUCE_ICON_FILE
+if(APPLE OR WIN32)
+    get_target_property(kJuceIconFile LDatLpMode JUCE_ICON_FILE)
+    if(NOT kJuceIconFile)
+        message(FATAL_ERROR "JUCE_ICON_FILE not set, JUCE icon handling changed. see resources/icon/make_icons.sh")
+    endif()
+    if(APPLE)
+        configure_file(resources/icon/ldat.icns "${kJuceIconFile}" COPYONLY)
+    else()
+        configure_file(resources/icon/ldat.ico "${kJuceIconFile}" COPYONLY)
+    endif()
+endif()
 
 target_sources(LDatLpMode PRIVATE
     src/PluginProcessor.cpp

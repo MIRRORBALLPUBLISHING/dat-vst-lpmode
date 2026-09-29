@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- app icon master, 1024 canvas, apple grid: 824 plate centered, rest is margin + shadow -->
+<!-- logo path data copied from the L-DAT logo, stroke 39.17 like the original -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="plate" x1="0" y1="100" x2="0" y2="924" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3e4a52"/>
+      <stop offset="1" stop-color="#293237"/>
+    </linearGradient>
+    <radialGradient id="gloss" cx="512" cy="60" r="620" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="100" x2="0" y2="924" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="0.25" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.8" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.25"/>
+    </linearGradient>
+    <!-- logo space, content spans y 25..1036 -->
+    <linearGradient id="ink" x1="0" y1="25" x2="0" y2="1036" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b8b8b8"/>
+      <stop offset="1" stop-color="#9a9a9a"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dy="10" result="blur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.4"/>
+      <feComposite in2="blur" operator="in"/>
+    </filter>
+    <!-- lines sit slightly raised off the plate -->
+    <filter id="inkShadow" x="-5%" y="-10%" width="110%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.5"/>
+      <feOffset dy="3" result="blur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.45"/>
+      <feComposite in2="blur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="plateClip">
+      <rect x="100" y="100" width="824" height="824" rx="185"/>
+    </clipPath>
+  </defs>
+
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="#000000" filter="url(#dropShadow)"/>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#plate)"/>
+  <rect x="100" y="100" width="824" height="824" fill="url(#gloss)" clip-path="url(#plateClip)"/>
+  <rect x="101.5" y="101.5" width="821" height="821" rx="183.5" fill="none" stroke="url(#rim)" stroke-width="3"/>
+
+  <!-- logo scaled 0.2, content center (1630, 530.5) moved to (512, 512) -->
+  <g filter="url(#inkShadow)">
+    <g transform="translate(186 405.9) scale(0.2)">
+      <path fill="none" stroke="url(#ink)" stroke-width="39.17" stroke-linecap="round" stroke-linejoin="round"
+        d="M800.82,252.84l232.76.42M800.82,322.2l236.23.13M800.82,391.54l236.23.42M800.82,460.89l235.57.42M800.82,807.63l233.43.4M800.82,738.27l234.14.16M800.82,668.93l235.54.42M800.82,599.58l235.56.42M800.82,530.24l236.09.13M800.82,183.49l761.78.42M800.82,114.16l706.55.42M1314.74,252.84l268.59.42M800.82,44.8l637.49.42M1343.68,322.2l260.36.13M1356.08,391.54l247.96.42M1369.18,460.89l248.67.42M800.82,1015.68l612.68.4M800.82,946.32h692.75M800.82,876.99l747.98.4M1307.85,807.63l268.58.4M1336.8,738.27l253.44.16M1353.33,668.93l250.71.42M1360.22,599.58l250.72.42M1369.18,530.24l245.74.13M2534.31,183.49l678.94.42M2534.31,114.16l678.94.42M2758.7,252.84l219.8.42M2534.31,44.8l678.94.42M2758.7,322.2l219.8.13M2758.7,391.54l219.8.42M2758.7,460.89l219.8.42M2758.7,1015.68l222.59.4M2758.7,946.32h219.8M2758.7,876.99l219.8.4M2758.7,807.63l219.8.4M2758.7,738.27l219.8.16M2758.7,668.93l219.8.42M2758.7,599.58l219.8.42M2758.7,530.24l220.3.13M2237.2,183.49l237.02.42M2237.2,114.16l237.02.42M2237.2,252.84l237.31.42M2237.2,44.8l237.44.42M2237.2,322.2l237.02.13M2237.2,391.54l237.02.42M2237.2,460.89l237.02.42M2237.2,1015.68l237.5.4M2237.2,946.32h237.02M2237.2,876.99l237.02.4M2237.2,807.63l237.02.4M2237.2,738.27l237.02.16M1690.38,668.93l783.85.42M1713.1,599.58l761.12.42M1740.68,530.24l734.11.13M1549.82,1015.63h238.5M1863.96,252.79l238.1.42M1832.89,322.14l238.29.14M1805.28,391.76l238.97.13M1774.2,460.83l238.31.42M1636.13,807.58l236.02.4M1667.19,738.22l238.27.16M1888.12,183.71l237.04.13M1919.47,114.1l237.85.42M1946.82,44.75h236.15M1549.82,1015.63h238.5M1578.4,946.27h238.35M1608.5,877.47l238.27-.16M46.73,44.93h237.02M46.73,114.29h237.02M46.73,183.63h237.02M46.73,252.98h237.02M46.73,322.34h237.02M46.73,391.68h237.02M46.73,461.03h237.02M46.73,530.38h237.02M46.73,599.72h237.02M46.73,669.07h237.02M46.73,738.41h237.02M46.73,807.77h237.02M46.73,877.13h678.94M46.73,946.46h678.94M46.73,1015.82h678.94"/>
+    </g>
+  </g>
+</svg>
