@@ -1,0 +1,15 @@
+build/
+out/
+.vs/
+*.user
+*.suo
+__pycache__/
+ref/
+log/
+doc/
+out/
+*.eps
+*.ai
+*.lnk
+*~
+CMakeUserPresets.json

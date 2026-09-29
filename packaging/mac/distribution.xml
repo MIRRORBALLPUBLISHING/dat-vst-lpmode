@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- template for productbuild. build_pkg.sh fills in @VERSION@ and @MIN_OS@ -->
+<installer-gui-script minSpecVersion="2">
+    <title>L-DAT LP Mode</title>
+    <license file="license.txt" mime-type="text/plain"/>
+    <!-- /Library only, the usual place for plugin installers -->
+    <domains enable_localSystem="true" enable_currentUserHome="false" enable_anywhere="false"/>
+    <!-- without arm64 in hostArchitectures an apple silicon mac asks for rosetta -->
+    <options customize="always" require-scripts="false" hostArchitectures="x86_64,arm64"/>
+    <allowed-os-versions>
+        <os-version min="@MIN_OS@"/>
+    </allowed-os-versions>
+
+    <choices-outline>
+        <line choice="au"/>
+        <line choice="vst3"/>
+        <line choice="standalone"/>
+    </choices-outline>
+
+    <choice id="au" title="Audio Unit" description="L-DAT_LP_Mode.component into /Library/Audio/Plug-Ins/Components. Logic Pro, GarageBand and other AU hosts.">
+        <pkg-ref id="cc.mirrorball.ldatlpmode.pkg.au"/>
+    </choice>
+    <choice id="vst3" title="VST3" description="L-DAT_LP_Mode.vst3 into /Library/Audio/Plug-Ins/VST3.">
+        <pkg-ref id="cc.mirrorball.ldatlpmode.pkg.vst3"/>
+    </choice>
+    <choice id="standalone" title="Standalone app" description="L-DAT_LP_Mode.app into /Applications. Runs without a DAW, asks for microphone access on first launch.">
+        <pkg-ref id="cc.mirrorball.ldatlpmode.pkg.standalone"/>
+    </choice>
+
+    <pkg-ref id="cc.mirrorball.ldatlpmode.pkg.au" version="@VERSION@" onConclusion="none">au.pkg</pkg-ref>
+    <pkg-ref id="cc.mirrorball.ldatlpmode.pkg.vst3" version="@VERSION@" onConclusion="none">vst3.pkg</pkg-ref>
+    <pkg-ref id="cc.mirrorball.ldatlpmode.pkg.standalone" version="@VERSION@" onConclusion="none">standalone.pkg</pkg-ref>
+</installer-gui-script>

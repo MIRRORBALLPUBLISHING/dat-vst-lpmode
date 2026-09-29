@@ -1,0 +1,51 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 25, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "vs2022",
+      "displayName": "Visual Studio 17 2022 x64",
+      "generator": "Visual Studio 17 2022",
+      "architecture": { "value": "x64", "strategy": "set" },
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" }
+    },
+    {
+      "name": "mac",
+      "displayName": "Xcode, universal 2 (arm64 + x86_64)",
+      "generator": "Xcode",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Darwin" },
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "arm64;x86_64",
+        "CMAKE_OSX_DEPLOYMENT_TARGET": "10.12"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "debug", "hidden": true, "configuration": "Debug" },
+    { "name": "release", "hidden": true, "configuration": "Release" },
+    { "name": "vs2022-debug", "inherits": "debug", "configurePreset": "vs2022" },
+    { "name": "vs2022-release", "inherits": "release", "configurePreset": "vs2022" },
+    { "name": "mac-debug", "inherits": "debug", "configurePreset": "mac" },
+    { "name": "mac-release", "inherits": "release", "configurePreset": "mac" }
+  ],
+  "testPresets": [
+    {
+      "name": "debug",
+      "hidden": true,
+      "configuration": "Debug",
+      "output": { "outputOnFailure": true }
+    },
+    {
+      "name": "release",
+      "hidden": true,
+      "configuration": "Release",
+      "output": { "outputOnFailure": true }
+    },
+    { "name": "vs2022-debug", "inherits": "debug", "configurePreset": "vs2022" },
+    { "name": "vs2022-release", "inherits": "release", "configurePreset": "vs2022" },
+    { "name": "mac-debug", "inherits": "debug", "configurePreset": "mac" },
+    { "name": "mac-release", "inherits": "release", "configurePreset": "mac" }
+  ]
+}

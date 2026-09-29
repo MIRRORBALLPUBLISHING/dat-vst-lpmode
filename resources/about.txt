@@ -1,0 +1,46 @@
+Copyright (C) 2026 MIRRORBALLPUBLISHING
+https://github.com/mirrorballpublishing/ldatvst
+
+VST3 / AudioUnit effect that emulates the sound of DAT option 2 (LP mode): 12-bit non-linear PCM (RFC3190 / IEC 61119) with a 32 kHz anti-alias filter and 50/15 us emphasis.
+
+--- Controls ---
+
+Input Gain
+  Level going into the quantizer. Decides
+  how hard the 12-bit non-linear stage is
+  driven.
+
+Threshold
+  Where the non-linear table starts to
+  compress. Drag to the very top for the
+  authentic DAT LP setting (512 LSB).
+
+32kHz
+  Anti-alias filter of the 32 kHz sample
+  rate.
+
+Emphasis
+  50/15 us pre-emphasis and de-emphasis.
+
+Output Gain
+  Makeup level after the quantizer.
+
+Bypass
+  Passes the input through untouched.
+
+--- Input Meter ---
+
+LP mode takes the 16-bit linear input and builds a 12-bit code out of it. Samples under the threshold (511 and below by default) pass straight through; above that the quantizer step doubles every octave, so the louder the sample the coarser the step.
+
+The segment colours show that step size at each level. White is pass through, nothing dropped. Pale yellow through orange is 1 to 6 bits dropped, which covers the whole standard table at threshold 512. Lowering the threshold pushes the top regions past 6 bits, and those run orange to red.
+
+--- Credits ---
+
+Built with JUCE.
+Host Grotesk typeface by The Host Grotesk Project Authors.
+
+--- License ---
+
+L-DAT LP Mode is free software under the GNU Affero General Public License, version 3 or (at your option) any later version. It comes with no warranty. See the LICENSE file in this package for the full text.
+
+The Host Grotesk typeface, Copyright 2023 The Host Grotesk Project Authors, is embedded in this plugin under the SIL Open Font License, version 1.1. The font is not covered by the AGPL. Full text: fonts/Host_Grotesk/OFL.txt in this package, or https://openfontlicense.org
