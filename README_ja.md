@@ -176,8 +176,6 @@ Standalone app は起動できるのに DAW を再起動してもプラグイン
 3. 「デフォルトを無効化」にチェックを入れ、有効期間を長く (例: 7300 日) 設定します。デフォルトは 1 年です。
 4. 証明書を秘密鍵ごと `.p12` として書き出し、バックアップを保管します。証明書が変わると、すべてのユーザーがマイクアクセスを再度許可する必要があります。
 
-初回ビルド時に鍵へのアクセスを求められます。「常に許可」を選んでください。
-
 `CMakePresets.json` と同じ場所に `CMakeUserPresets.json` を追加します。証明書名は各自のものなので、このファイルは .gitignore されています。
 
 ```json
@@ -207,7 +205,7 @@ cmake --build --preset mac-selfsigned-release
 bash packaging/mac/build_pkg.sh build/mac-selfsigned
 ```
 
-スクリプトは `build/mac-selfsigned/L-DAT_LP_Mode-<version>-mac.pkg` を出力します。アドホック署名のバンドルがあると警告を出します。pkg 自体は未署名のままです。
+スクリプトは `build/mac-selfsigned/L-DAT_LP_Mode-<version>-mac.pkg` を出力します。ad-hoc 署名のバンドルがあると警告を出します。pkg 自体は未署名のままです。
 
 ## テスト
 
@@ -221,7 +219,8 @@ bash packaging/mac/build_pkg.sh build/mac-selfsigned
 
 ## ライセンス
 
-L-DAT LP Mode は [GNU Affero General Public License v3](LICENSE) で提供されます。JUCE も同じライセンスで使用しています。
+L-DAT LP Mode は [GNU Affero General Public License v3](LICENSE) です。
+JUCE も同じライセンスで使用しています。
 
 プラグインには Host Grotesk フォント (Copyright 2023 The Host Grotesk Project Authors) が [SIL Open Font License 1.1](resources/fonts/Host_Grotesk/OFL.txt) のもとで埋め込まれています。フォントは AGPL の対象外です。詳細は `LICENSE` 冒頭の追加許可を参照してください。
 
