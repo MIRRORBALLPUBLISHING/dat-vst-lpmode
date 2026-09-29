@@ -1,6 +1,6 @@
 # L-DAT LP Mode
 
-![](ldat01.png)
+![](ldat02.png)
 
 DAT Option 2 (LP mode) のサウンドをエミュレーションする VST3 / AudioUnit エフェクトです。12bit 非直線 PCM (RFC3190 / IEC 61119)、32kHz のアンチエイリアスフィルタ、50/15us エンファシスを備えます。
 

@@ -1,6 +1,6 @@
 # L-DAT LP Mode
 
-![](ldat01.png)
+![](ldat02.png)
 
 VST3 / AudioUnit effect that emulates the sound of DAT Option 2 (LP mode). It has 12bit nonlinear PCM (RFC3190 / IEC 61119), a 32kHz anti-alias filter and 50/15us emphasis.
 
