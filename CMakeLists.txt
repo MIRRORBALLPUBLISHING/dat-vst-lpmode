@@ -37,6 +37,9 @@ juce_add_plugin(LDatLpMode
     # the standalone opens an input device. macOS 10.14+ kills an app that touches audio input without this plist key
     MICROPHONE_PERMISSION_ENABLED TRUE
     MICROPHONE_PERMISSION_TEXT "L-DAT LP Mode needs audio input to process it."
+    # the standalone audio settings dialog has a Bluetooth MIDI button hardwired by JUCE. without this plist key TCC kills the app on click
+    BLUETOOTH_PERMISSION_ENABLED TRUE
+    BLUETOOTH_PERMISSION_TEXT "L-DAT LP Mode does not use MIDI. Bluetooth is only touched by the JUCE audio settings dialog."
     # ad-hoc or self-signed, no Developer ID and no notarisation. xcode generator only, XCODE_ATTRIBUTE_* means nothing to ninja
     HARDENED_RUNTIME_ENABLED TRUE
     # off everywhere. the mac pkg installs into /Library, a copy into ~/Library
