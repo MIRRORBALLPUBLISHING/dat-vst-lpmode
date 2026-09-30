@@ -33,6 +33,8 @@ juce_add_plugin(LDatLpMode
     VST3_CATEGORIES Fx Distortion
     # 'aufx'. JUCE picks this anyway for a non synth, spelled out so the auval command line reads straight off this file
     AU_MAIN_TYPE kAudioUnitType_Effect
+    # no file or network access anywhere in the plugin. declares sandboxSafe instead of JUCE's default resourceUsage (network.client + files.all.read-write), so sandboxed hosts like GarageBand load it with no exceptions
+    AU_SANDBOX_SAFE TRUE
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT FALSE
     NEEDS_MIDI_OUTPUT FALSE
