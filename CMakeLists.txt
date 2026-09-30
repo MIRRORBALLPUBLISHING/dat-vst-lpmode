@@ -7,6 +7,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# static CRT on windows, so the plugin and standalone run without the VC++ redistributable.
+# read at target creation, so this has to come before JUCE and juce_add_plugin
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+
 # JUCE comes in as a git submodule. run `git submodule update --init` first.
 if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/third_party/JUCE/CMakeLists.txt")
     message(FATAL_ERROR "third_party/JUCE is empty. run: git submodule update --init")
