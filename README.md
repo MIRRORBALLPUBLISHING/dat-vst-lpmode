@@ -4,7 +4,8 @@
 
 VST3 / AudioUnit effect that emulates the sound of DAT Option 2 (LP mode). It has 12bit nonlinear PCM (RFC3190 / IEC 61119), a 32kHz anti-alias filter and 50/15us emphasis.
 
-ref. [RFC3190](https://datatracker.ietf.org/doc/rfc3190/)
+ref. [RFC3190](https://datatracker.ietf.org/doc/rfc3190/) RTP Payload Format for 12-bit DAT Audio and 20- and 24-bit Linear Sampled Audio:  K.Kobayashi, A.Ogawa, S.Casner, C.Bormann,
+
 
 ## Requirements
 

@@ -4,7 +4,8 @@
 
 DAT Option 2 (LP mode) のサウンドをエミュレーションする VST3 / AudioUnit エフェクトです。12bit 非直線 PCM (RFC3190 / IEC 61119)、32kHz のアンチエイリアスフィルタ、50/15us エンファシスを備えます。
 
-ref. [RFC3190](https://datatracker.ietf.org/doc/rfc3190/)
+ref. [RFC3190](https://datatracker.ietf.org/doc/rfc3190/) RTP Payload Format for 12-bit DAT Audio and 20- and 24-bit Linear Sampled Audio:  K.Kobayashi, A.Ogawa, S.Casner, C.Bormann,
+
 
 ## Requirements
 
