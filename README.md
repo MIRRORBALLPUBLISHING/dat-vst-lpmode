@@ -9,16 +9,18 @@ ref. [RFC3190](https://datatracker.ietf.org/doc/rfc3190/) RTP Payload Format for
 
 ## Requirements
 
+A standalone version is also available.
+
 #### Windows:
 
 - Windows 11 or later, x64
-- VST3 64bit DAW
+- (Option) VST3 64bit DAW
 
 #### macOS:
 
 - macOS 10.12 or later
 - x64 or arm64
-- AU or VST3 DAW
+- (Option) AU or VST3 DAW
 
 ## Install
 
